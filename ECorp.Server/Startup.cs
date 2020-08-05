@@ -14,7 +14,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
 using System.Net.Http;
-
+using Csla.Configuration;
 namespace ECorp.Server
 {
     public class Startup
@@ -34,6 +34,7 @@ namespace ECorp.Server
                     .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
             services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
             services.AddScoped<SignOutSessionStateManager>();
+            services.AddCsla().WithBlazorServerSupport();
             if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
             {
                 // Setup HttpClient for server side in a client side compatible fashion
@@ -67,7 +68,7 @@ namespace ECorp.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
@@ -75,7 +76,7 @@ namespace ECorp.Server
             
             app.UseAuthentication();
             app.UseAuthorization();
-
+            //app.UseCsla();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,6 +1,10 @@
 @page "/fetchdata"
+
+
+@using Microsoft.AspNetCore.Authorization;
+@using System.Net.Http;
 @inject HttpClient Http;
-@using Microsoft.AspNetCore.Authorization; 
+@inject ECorp.UI.Services.ValuesService valuesService;
 @attribute [Authorize]
 <h1>Weather forecast</h1>
 
@@ -47,7 +51,10 @@
 
     protected override async Task OnInitializedAsync()
     {
+
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        var whatever = await valuesService.GetValues();
+        System.Diagnostics.Debug.WriteLine(whatever);
     }
 
     public class WeatherForecast

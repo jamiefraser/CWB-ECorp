@@ -13,7 +13,7 @@ namespace ECorp.UI
         : base(provider, navigationManager)
         {
             ConfigureHandler(
-                authorizedUrls: new[] { "https://localhost:44345/api/" },
+                authorizedUrls: new[] { "https://localhost:44352/api/" },
                 scopes: new[] { "https://nsdevelopment.onmicrosoft.com/DualBlazor/user_impersonation" });
         }
     }
