@@ -17,7 +17,7 @@ namespace ECorp.UI.Services
         public async Task<List<string>>GetValues()
         {
             var httpClient = clientFactory.CreateClient("ServerAPI");
-            return await httpClient.GetJsonAsync<List<string>>("values");
+            return await httpClient.GetJsonAsync<List<string>>("/api/values");
         }
     }
 }

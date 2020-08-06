@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECorp.Client", "ECorp.Clien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECorp.UI", "ECorp.UI\ECorp.UI.csproj", "{D3CF2BFA-AD02-4771-B25A-7EA8F0F21904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECorp.DataAccess", "ECorp.DataAccess\ECorp.DataAccess.csproj", "{2D4B34C2-9FBE-4F6C-A95C-E74E7EE05ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECorp.DataAccess", "ECorp.DataAccess\ECorp.DataAccess.csproj", "{2D4B34C2-9FBE-4F6C-A95C-E74E7EE05ABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECorp.Business", "ECorp.Business\ECorp.Business.csproj", "{9362FD2F-C253-4EE2-ADE6-5C6F7CFE7E7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECorp.Business", "ECorp.Business\ECorp.Business.csproj", "{9362FD2F-C253-4EE2-ADE6-5C6F7CFE7E7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECorp.DataAccess.Wasm", "Blazor.DataAccess.Wasm\ECorp.DataAccess.Wasm.csproj", "{9471BDE6-9C4D-4774-9886-C07747EC9E27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECorp.DataAccess.Remote", "ECorp.DataAccess.Remote\ECorp.DataAccess.Remote.csproj", "{EC8E17A4-4CAA-449A-BD95-98B14EBD8019}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{9362FD2F-C253-4EE2-ADE6-5C6F7CFE7E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9362FD2F-C253-4EE2-ADE6-5C6F7CFE7E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9362FD2F-C253-4EE2-ADE6-5C6F7CFE7E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9471BDE6-9C4D-4774-9886-C07747EC9E27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9471BDE6-9C4D-4774-9886-C07747EC9E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9471BDE6-9C4D-4774-9886-C07747EC9E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9471BDE6-9C4D-4774-9886-C07747EC9E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC8E17A4-4CAA-449A-BD95-98B14EBD8019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8E17A4-4CAA-449A-BD95-98B14EBD8019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8E17A4-4CAA-449A-BD95-98B14EBD8019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8E17A4-4CAA-449A-BD95-98B14EBD8019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

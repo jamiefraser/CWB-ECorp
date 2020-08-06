@@ -1,0 +1,55 @@
+﻿@page "/ListContacts"
+@using ECorp.Business.Contact;
+@using ECorp.DataAccess.Contact;
+@using Telerik.Blazor;
+@using Telerik.Blazor.Components;
+@using Telerik.Blazor.Components.Grid;
+@inject Csla.Blazor.ViewModel<ContactList> vm;
+@inject ECorp.DataAccess.Contact.IContactDal dal;
+@inject ECorp.DataAccess.IBackgroundDataRefreshService<ContactEntity> backgroundContactService;
+<h3>List of Contacts</h3>
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@if (vm.Model == null)
+{
+    <p>Loading List...</p> }
+else
+{
+    <TelerikGrid Data="@vm.Model"
+                 PageSize="10"
+                 Sortable="true"
+                 Reorderable="true"
+                 Pageable="true"
+                 FilterMode="GridFilterMode.FilterMenu"
+                 SelectionMode="GridSelectionMode.Single">
+        <GridColumns>
+            <GridColumn Title="Account Name" Field="@nameof(ContactInfo.FullName)" Filterable="true" />
+            <GridColumn Title="Address" Field="@nameof(ContactInfo.Address1)" Sortable="false" Filterable="false" />
+        </GridColumns>
+    </TelerikGrid>
+}
+@code {
+    protected override async Task OnParametersSetAsync()
+    {
+        dal.PropertyChanged += async (sender, args) =>
+        {
+            System.Diagnostics.Debug.WriteLine("I detect a change in the Contacts List!  Handling that with a call to RefreshList()");
+            await RefreshList();
+        };
+        await RefreshList();
+        await backgroundContactService.Refresh();
+    }
+        protected override async Task OnInitializedAsync()
+        {
+            await base.OnInitializedAsync();
+        }
+        protected async Task RefreshList()
+    {
+        await vm.RefreshAsync(() => Csla.DataPortal.FetchAsync<ContactList>
+            ()).ContinueWith((result) =>
+            {
+                System.Diagnostics.Debug.WriteLine("In the ContinueWith after FetchAsync");
+                StateHasChanged();
+            });
+    }
+}
+
